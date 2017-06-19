@@ -30,11 +30,11 @@ const jwtCheck = jwt({
 		cache: true,
 		rateLimit: true,
 		jwksRequestsPerMinute: 5,
-		jwksUri: `https://krebshaus.auth0.com/.well-known/jwks.json`
+		jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
 	}),
-	audience: 'http://kotlin-test.com',
-	issuer: `https://krebshaus.auth0.com/`,
-	algorithms: ['RS256']
+	audience: process.env.AUTH0_AUDIENCE,
+	issuer: `https://${process.env.AUTH0_DOMAIN}/`,
+	algorithms: [process.env.AUHT0_ALGORITHM || 'RS256']
 });
 
 // accepts new items (secured endpoint)
