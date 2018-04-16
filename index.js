@@ -43,4 +43,4 @@ app.post('/', jwtCheck, function (req, res) {
 	res.sendStatus(200)
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080, () => console.log(`Express app listening on port ${process.env.PORT || 8080}.`))
